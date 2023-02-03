@@ -31,7 +31,7 @@ def display_price_increase():
         # if new price is whole num, convert to int
         if int(new_price) == round(new_price):
             new_price = int(new_price)
-        # if not, stay float and round num to once decimal
+        # if not, stay float and round num to one decimal point
         else:
             new_price = round(new_price, 1)
         print(f"{article_old['item']} ({article_old['category']}):"
