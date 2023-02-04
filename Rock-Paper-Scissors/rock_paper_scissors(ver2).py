@@ -19,7 +19,7 @@ def play():
                                     ("Scissors", "Paper")]:
         result = "WON"
         user_score += 1
-    # if user_choice[0] and ai_choice[1] are the same "Rock" at both index 0 and 1, it's a tie
+    # if user_choice[0] and ai_choice[1] are the same at both index 0 and 1, it's a tie
     elif user_choice == ai_choice:
         result = "TIE"
     # if any other combination occurs, user lost
