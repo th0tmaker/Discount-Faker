@@ -22,10 +22,10 @@ def increase_price_by_percentage(clothing, category, percentage):
             i["price"] += i["price"] * (percentage / 100)
 
 
-def display_price_increase():
-    for a in range(len(article_list)):
-        article_old = article_list[a]
-        article_new = (new_article_list[a])
+def display_price_increase(article_lst, new_article_lst):
+    for a in range(len(article_lst)):
+        article_old = article_lst[a]
+        article_new = (new_article_lst[a])
         old_price = article_old["price"]
         new_price = article_new["price"]
         # if new price is whole num, convert to int
@@ -43,4 +43,4 @@ percentage_input = int(input("Enter the percentage of price increase: "))
 new_article_list = copy.deepcopy(article_list)
 
 increase_price_by_percentage(new_article_list, category_input, percentage_input)
-display_price_increase()
+display_price_increase(article_list, new_article_list)
