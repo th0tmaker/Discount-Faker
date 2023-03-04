@@ -13,8 +13,8 @@ def text2words(txt):
     return words
 
 
-# iterate through word list and tally up the words inside a dictionary
-def word_tally(words):
+# iterate through words list and tally up the words inside a dictionary
+def tally_into_dict(words):
     word_count = {}
     # for every item in the word list
     for word in words:
@@ -33,6 +33,29 @@ def word_tally(words):
 def sort_by_word_freq(word_count):
     # turn word_count dictionary content into key-value pair of tuples by using .items() method
     # sort by key, where key is 2nd element in tuple (index[0] = word, index[1] = freq) by using lambda anon function
+    # reverse=True -> turn sort order from ascending into descending
+    sorted_words = sorted(word_count.items(), key=lambda x: x[1], reverse=True)
+    return sorted_words
+
+
+# print result of sorted words in desired format
+def print_result(sorted_words):
+    # for item in pos[0] and item in pos[1] in sorted_words tuple
+    for word, freq in sorted_words:
+        print("{}: {}".format(word, freq))  # [0] in 1st curly bracket, [1] in 2nd curly bracket
+
+
+# text for testing code
+text = """With a wicked gleam in his eye, Dr.LeQuack set to work, creating a complex and convoluted contraption that
+       even Courage wouldn't be able to stop. With a fierce determination, Dr.LeQuack crept through the streets of
+       Nowhere, searching for Courage. When he found the trembling canine, he activated his device - a mishmash of
+       whirling gears and spinning     blades that were surely going to threaten the well-being of his nemesis."""
+
+final_words = text2words(text)
+final_word_count = tally_into_dict(final_words)
+final_sorted_words = sort_by_word_freq(final_word_count)
+
+print_result(final_sorted_words)
     # reverse=True -> turn sort order from ascending into descending
     sorted_words = sorted(word_count.items(), key=lambda x: x[1], reverse=True)
     return sorted_words
